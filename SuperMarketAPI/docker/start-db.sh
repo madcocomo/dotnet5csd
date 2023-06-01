@@ -1,0 +1,1 @@
+docker run -d --rm -v $(pwd)/postgresql:/var/lib/postgresql/data -v $(pwd)/init-at.sql:/docker-entrypoint-initdb.d/init-at.sql -e PGDATA=/var/lib/postgresql/data/pgdata -e POSTGRES_PASSWORD=supermarket --name supermarket -p 15432:5432 postgres:9.6-alpine
