@@ -1,6 +1,6 @@
 ﻿namespace CSD.Isolation
 {
-    public class Gearbox
+    public class Gearbox : IGearbox
     {
         public bool IsReady()
         {

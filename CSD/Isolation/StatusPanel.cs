@@ -2,7 +2,7 @@
 
 namespace CSD.Isolation
 {
-    public class StatusPanel
+    public class StatusPanel : IStatusPanel
     {
 
         public int Speed { get; }

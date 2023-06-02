@@ -1,6 +1,6 @@
 ﻿namespace CSD.Isolation
 {
-    public class Electronics
+    public class Electronics : IElectronics
     {
         public void Accelerate()
         {

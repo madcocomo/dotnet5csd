@@ -2,18 +2,18 @@
 {
     public class CarController
     {
-        public bool GetReadyToGo(Engine engine, Gearbox gearbox, Electronics electronics, StatusPanel statusPanel)
+        public bool GetReadyToGo(IEngine engine, IGearbox gearbox, IElectronics electronics, IStatusPanel statusPanel)
         {
             return engine.IsReady() && gearbox.IsReady() && electronics.IsReady() && statusPanel.IsReady();
         }
 
-        public void GoForward(Electronics electronics, StatusPanel statusPanel)
+        public void GoForward(IElectronics electronics, IStatusPanel statusPanel)
         {
             if (statusPanel.EngineIsRunning() && statusPanel.ThereIsEnoughFuel())
                 electronics.Accelerate();
         }
 
-        public void Stop(int halfBrakingPower, Electronics electronics, StatusPanel statusPanel)
+        public void Stop(int halfBrakingPower, IElectronics electronics, IStatusPanel statusPanel)
         {
             electronics.PushBrakes(halfBrakingPower);
             if (statusPanel.Speed > 0)

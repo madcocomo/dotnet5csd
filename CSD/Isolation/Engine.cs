@@ -1,6 +1,6 @@
 ﻿namespace CSD.Isolation
 {
-    public class Engine
+    public class Engine : IEngine
     {
         public bool IsReady()
         {
