@@ -1,27 +1,20 @@
 ﻿using NUnit.Framework;
+using FluentAssertions;
 namespace CSD
 {
     [TestFixture]
     public class PrimeGeneratorTest
     {
-        [Test]
-        public void TestPrimes()
-        {
-            int[] nullArray = new PrimeGenerator().GeneratePrimes(0);
-            Assert.AreEqual(0, nullArray.Length);
 
-            int[] minArray = new PrimeGenerator().GeneratePrimes(2);
-            Assert.AreEqual(1, minArray.Length);
-            Assert.AreEqual(2, minArray[0]);
-
-            int[] threeArray = new PrimeGenerator().GeneratePrimes(3);
-            Assert.AreEqual(2, threeArray.Length);
-            Assert.AreEqual(2, threeArray[0]);
-            Assert.AreEqual(3, threeArray[1]);
-
-            int[] centArray = new PrimeGenerator().GeneratePrimes(100);
-            Assert.AreEqual(25, centArray.Length);
-            Assert.AreEqual(97, centArray[24]);
+        [TestCase(0, new int[] { })]
+        [TestCase(2, new int[] { 2 })]
+        [TestCase(3, new int[] { 2, 3 })]
+        [TestCase(100, new int[] {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 
+            43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97})]
+        public void TestPrimes(int maxValue, int[] expect)
+        { 
+            new PrimeGenerator().GeneratePrimes(maxValue)
+                .Should().Equal(expect);
         }
 
         [Test]
