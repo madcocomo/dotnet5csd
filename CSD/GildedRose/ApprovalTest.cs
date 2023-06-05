@@ -17,7 +17,7 @@ namespace CSD.GildedRose
 
             StringBuilder fakeoutput = new StringBuilder();
             Console.SetOut(new StringWriter(fakeoutput));
-            Console.SetIn(new StringReader("a\n"));
+            Console.SetIn(new StringReader("\n"));
 
             TexttestFixture.Main(new string[] { });
             var output = fakeoutput.ToString();
